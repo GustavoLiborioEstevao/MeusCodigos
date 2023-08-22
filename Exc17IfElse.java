@@ -1,26 +1,25 @@
 import java.util.Scanner;
 
 public class Exc17IfElse {
-
 	public static void main(String[] args) {
+
 		Scanner input = new Scanner(System.in);
-		
-		System.out.println("Quantas horas você trabalhou?");
-		double horas = input.nextDouble();
-		
-		System.out.println("Quanto você ganha por hora?");
-		double ganhoPorHora = input.nextDouble();
-		
-		double salarioSemAcrescimo = horas * ganhoPorHora; 
-		
-		double horaExtra = horas - 40;
-		
-		if (horas > 40) {
-			System.out.println("Seu salário será: " + ganhoPorHora * 0.5 * horaExtra  + salarioSemAcrescimo);
+		System.out.println("Quantas horas foram trabalhadas?");
+		double horasTrabalhadas = input.nextDouble();
+		if (horasTrabalhadas < 730 && horasTrabalhadas > 0) {
+			System.out.println("Qual seu salario por hora?");
+			double salarioHora = input.nextDouble();
+			if (horasTrabalhadas > 160) {
+				double horaExtra = horasTrabalhadas - 160;
+				double salarioExtra = horaExtra * (salarioHora * 1.5);
+				System.out.println("Salario: " + ((salarioHora * 160) + salarioExtra));
+			} else {
+				System.out.println("Salario: " + salarioHora * 160);
+			}
+		} else {
+			System.out.println("As horas que você colocou são inválidas");
 		}
-		else {
-			System.out.println("Seu salário será " +salarioSemAcrescimo);
-		}
+
 	}
 
 }
